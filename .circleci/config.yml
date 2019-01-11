@@ -20,3 +20,12 @@ jobs:
       - run:
           name: notify build is finished
           command: echo "The build is finished!"
+          
+  testlinks:
+    executor: ci-executor
+    steps:
+      - checkout
+
+      - run:
+          name: check links
+          command: bundle exec htmlproofer ./_site --check-html
